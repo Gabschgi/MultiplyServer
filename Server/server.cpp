@@ -8,7 +8,6 @@ Server::Server(QWidget *parent) :
     ui(new Ui::Server)
 {
     ui->setupUi(this);
-    ui->connectionLabel->hide();
 
     connect(&server, SIGNAL(newConnection()), this, SLOT(acceptConnection()));
 
@@ -26,11 +25,6 @@ void Server::acceptConnection()
     client = server.nextPendingConnection();
 
     connect(client, SIGNAL(readyRead()), this, SLOT(startRead()));
-
-    QHostAddress clientIPAddress = client->localAddress();
-    QString clientIPString = clientIPAddress.toString();
-    ui->connectionLabel->setText("Verbindung mit " + clientIPString + " wurde hergestellt.");
-    ui->connectionLabel->show();
 }
 
 void Server::startRead()
@@ -52,6 +46,5 @@ void Server::startRead()
     client->read(buffer, client->bytesAvailable());
     client->close();
 
-    QString calculation = factor1String + " * " + factor2String + " = " + productString;
-    ui->connectionLabel->setText(bufferString);
+    qDebug() << factor1String << " * " << factor2String << " = " << productString;
 }
