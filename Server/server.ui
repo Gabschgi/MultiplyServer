@@ -13,21 +13,7 @@
   <property name="windowTitle">
    <string>Server</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="connectionLabel">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>371</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Verbindung hergestellt</string>
-    </property>
-   </widget>
-  </widget>
+  <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
